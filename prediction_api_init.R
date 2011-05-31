@@ -162,7 +162,7 @@ summary.PredictionApiModel <- function(object, ...) {
 
 predict.PredictionApiModel <- function(object,
                                        newdata,
-                                       verbose = FALSE,
+                                       verbose = myVerbose,
                                        ...) {
   # Predicts the label of newdata using model on Prediction API.
   # example: not runnable, you need to provide bucket.name and object.name
@@ -216,7 +216,7 @@ predict.PredictionApiModel <- function(object,
 
 PredictionApiCheckTrainingStatus <- function(bucket.name,
                                              object.name,
-                                             verbose = FALSE) {
+                                             verbose = myVerbose) {
   # Checks if the training of the given object is completed
   # example:
   #    # to check if the training of gs://bucket.name/object.name is finished
@@ -257,7 +257,7 @@ PredictionApiCheckTrainingStatus <- function(bucket.name,
 
 PredictionApiListObjects <- function(bucket.name = "",
                                      object.name = "",
-                                     verbose = FALSE) {
+                                     verbose = myVerbose) {
   # Lists all buckets if object.name is not provided
   # or list all objects if bucket.name is provided.
   # example:
@@ -289,7 +289,7 @@ PredictionApiListObjects <- function(bucket.name = "",
 
 PredictionApiRemoveObjects <- function(bucket.name,
                                        object.name,
-                                       verbose = FALSE) {
+                                       verbose = myVerbose) {
   # Removes the given object in Google Storage
   #
   # Args:

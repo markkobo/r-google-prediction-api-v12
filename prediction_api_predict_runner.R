@@ -3,7 +3,7 @@
 
 PredictionApiPredictRunner <- function(model,
                                        newdata,
-                                       verbose = FALSE) {
+                                       verbose = myVerbose) {
   # Predicts the label of newdata (one instance) using model
   # on Google Prediction API
   #
@@ -30,6 +30,8 @@ PredictionApiPredictRunner <- function(model,
 
   bucket.name <- model$bucket.name
   object.name <- model$object.name
+  
+  if (length(newdata)>1) newdata <- as.character(lapply(list(newdata),paste,collapse=", "))
 
   # detect newdata type: "numeric" or "text" ("text" may also means mixed data)
   if (length(grep("'",newdata))>0) {
