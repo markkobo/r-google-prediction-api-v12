@@ -2,12 +2,12 @@
 # Author: markko@google.com (Markko Ko)
 # ---
 #
-# modified for Google API v1.2 and extended by Maciej Janiec (mjaniec@gmail.com), 2011-05-30
+# modified for Google API v1.2 and extended by Maciej Janiec (mjaniec@gmail.com), 2011-05-31
 
 PredictionApiResultHandler <- function(result.data = "",
                                        mode = "train",
                                        data.type = "numeric",
-                                       verbose = FALSE) {
+                                       verbose = myVerbose) {
   # Handles json format result from Google Prediction API
   # and outputs a R style result object with status information.
   # It accepts three connection modes: "train", "predict", "check"
@@ -69,8 +69,8 @@ PredictionApiResultHandler <- function(result.data = "",
   	if (verbose) cat(as.character(result.data),"\n")
   
     # handle json from prediction API
-    # get label as result
-    result.final <- result.data$outputLabel
+    # get label as result    
+    result.final <- ifelse(data.type=="text",result.data$outputLabel,result.data$outputValue)
     
     # check if error
     if (is.null(result.final)) {
@@ -98,10 +98,10 @@ PredictionApiResultHandler <- function(result.data = "",
 			
 			result.final$labels <- result.final$labels[result.final$order]
 			result.final$scores <- result.final$scores[result.final$order]
+			
+			result.final <- c(result.final$labels,result.final$scores)
     
-    }
-    
-    result.final <- c(result.final$labels,result.final$scores)
+    }     
     
     return(result.final)
   }
