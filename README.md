@@ -2,7 +2,7 @@ R package implemention of Google Prediction API v1.2
 
 Modification and some extension of 'R client library for the Google Prediction API' (Markko Ko, Google Inc., 2010) for Google Prediction API v1.2
 
-*Deprecated together with google prediction api:*
+# *Deprecated together with google prediction api:*
 https://cloud.google.com/prediction/docs/
 
 Platform
