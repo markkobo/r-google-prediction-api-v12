@@ -1,19 +1,20 @@
-R package implementing Google Prediction API v1.2
+R package implemention of Google Prediction API v1.2
 
 Modification and some extension of 'R client library for the Google Prediction API' (Markko Ko, Google Inc., 2010) for Google Prediction API v1.2
 
-Platform
+*Deprecated together with google prediction api:*
+https://cloud.google.com/prediction/docs/
 
+Platform
 Windows 
+Prerequisities
 R 2.13.0
 Python 2.7
-Prerequisities
+
 
 Google Prediction API can be accessed from IP addresses authorized in Google API Console only
 you have to manually authorize GSUtil ('gsutil config') and create .boto file
 Notes
-
-Please note that I left many comments from original library code unchanged, so they may not be completely adequate for the modified library.
 
 Sample code
 
